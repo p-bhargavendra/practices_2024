@@ -1,0 +1,27 @@
+#!/bin/bash/
+pipline{
+agent any
+{
+stage(' check code')
+steps{
+git branch:'main',url:'https'
+}
+}
+stage ('terraform plan')
+{
+steps
+{
+sh 'terraform init'
+}
+}
+}
+post{
+
+success{
+echo 'successfully created'
+}
+failure{
+echo 'failed'
+}
+}
+}
